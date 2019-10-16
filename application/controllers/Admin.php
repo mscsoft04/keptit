@@ -357,8 +357,7 @@ class Admin extends REST_Controller
 		}
 	}
 
-
-	function appointment_post()
+function appointment_post()
 	{
 		$userId  = $this->post('userId');
 		$scheduledDt  = $this->post('scheduledDt');
@@ -493,6 +492,154 @@ class Admin extends REST_Controller
 		$result = $this->admin_model->insert_appointment($data);
 		//$customer_code
 
+
+		if ($result) {
+
+			$output = array("status" => true, "msg" => "Appointment Scheduled on  " . date('m/d/Y h:i:s', strtotime($scheduledDt)), "appointment_id" => $appointmentId);
+			$this->response($output, 200);
+		} else {
+
+
+			$output = array("status" => false, "msg" => "something went wrong. Please Try again.");
+			$this->response($output, 404);
+		}
+	}
+
+
+
+	function update_appointment_post()
+	{
+		$userId  = $this->post('userId');
+		$scheduledDt  = $this->post('scheduledDt');
+		$appointmentName  = $this->post('appointmentName');
+		$scheduleType  = $this->post('scheduleType');
+		$countryCode  = $this->post('countryCode');
+		$mobileNo  = $this->post('mobileNo');
+		$isWeekly  = $this->post('isWeekly');
+		$isMonthly  = $this->post('isMonthly');
+		$isYearly  = $this->post('isYearly');
+		$isOneTime  = $this->post('isOneTime');
+		$appointmentId=$this->post('appointmentId');
+
+		$createdDt = date('Y-m-d h:i:s');
+
+
+
+		if (!$userId) {
+			$output = array("status" => false, "msg" => "please enter  User ID");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+		if ($userId) {
+			$check_userid = $this->admin_model->check_userexist($userId);
+			if ($check_userid < 1) {
+
+				$output = array("status" => false, "msg" => "Invalid userId");
+				$this->response($output, 404);
+
+				exit;
+			}
+		}
+
+
+		if (!$scheduledDt) {
+			$output = array("status" => false, "msg" => "please select Schedule Date");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+		if (!$appointmentName) {
+			$output = array("status" => false, "msg" => "please Enter the Appointment Name");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+		if (!$scheduleType) {
+			$output = array("status" => false, "msg" => "please Enter the schedule Type");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+		if (!$countryCode) {
+			$output = array("status" => false, "msg" => "please Enter the Country Code");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+
+		if (!$mobileNo) {
+			$output = array("status" => false, "msg" => "please enter  Mobile No ");
+			$this->response($output, 404);
+
+			exit;
+		}
+
+		if (!$isWeekly) {
+			$isWeekly  = 0;
+		}
+
+		if (isset($isWeekly) && $isWeekly == true) {
+			$isWeekly  = 1;
+		}
+
+		if (isset($isWeekly) && $isWeekly == false) {
+			$isWeekly  = 0;
+		}
+
+
+		if (!$isMonthly) {
+			$isMonthly  = 0;
+		}
+
+		if (isset($isMonthly) && $isMonthly == true) {
+			$isMonthly  = 1;
+		}
+
+		if (isset($isMonthly) && $isMonthly == false) {
+			$isMonthly  = 0;
+		}
+
+		if (!$isYearly) {
+			$isYearly  = 0;
+		}
+		if (isset($isYearly) && $isYearly == true) {
+			$isYearly  = 1;
+		}
+
+		if (isset($isYearly) && $isYearly == false) {
+			$isYearly  = 0;
+		}
+        
+        if (isset($isOneTime) && $isOneTime == true) {
+			$isOneTime  = 1;
+		}
+
+		if (isset($isOneTime) && $isOneTime == false) {
+			$isOneTime  = 0;
+		}
+
+
+		$data = array(
+			"userId" => $userId,
+			"scheduledDt" => $scheduledDt,
+			"appointmentName" => $appointmentName,
+			"scheduleType" => $scheduleType,
+			"countryCode" => $countryCode,
+			"mobileNo" => $mobileNo,
+			"isWeekly" => $isWeekly,
+			"isMonthly" => $isMonthly,
+			"isYearly" => $isYearly,
+			"isOneTime"=>$isOneTime,
+		);
+		 $this->db->where('appointmentId', $appointmentId);
+        $result=$this->db->update('appointment', $data);
+        
 
 		if ($result) {
 

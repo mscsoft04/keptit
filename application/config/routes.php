@@ -66,6 +66,9 @@ $route['logout'] = 'admin/logout';
 $route['getappointment'] = 'admin/getappointment';
 $route['getsettings'] = 'admin/getsettings';
 $route['getuserprofile'] = 'admin/getuserprofile';
+$route['updateappointment'] = 'admin/update_appointment';
+
+
 
 
 
