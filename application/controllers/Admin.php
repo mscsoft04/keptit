@@ -239,111 +239,62 @@ class Admin extends REST_Controller
 		}
 
 
-		if (!$isCallReminder) {
-			$isCallReminder  = 0;
-		}
-
-		if (isset($isCallReminder) && $isCallReminder == "true") {
+		
+		if (isset($isCallReminder) && $isCallReminder == true) {
 
 			$isCallReminder  = 1;
-		}
-
-		if (isset($isCallReminder) && $isCallReminder == "false") {
+		}else{
 
 			$isCallReminder  = 0;
 		}
 
-
-		if (!$isTextReminder) {
-			$isTextReminder  = 0;
-		}
-
-		if (isset($isTextReminder) &&  $isTextReminder == "true") {
+		if (isset($isTextReminder) &&  $isTextReminder == true) {
 			$isTextReminder  = 1;
-		}
-
-		if (isset($isTextReminder) &&  $isTextReminder == "false") {
+		}else {
 			$isTextReminder  = 0;
 		}
 
 
-
-		if (!$isCallRecordings) {
-			$isCallRecordings  = 0;
-		}
-
-		if (isset($isCallRecordings) && $isCallRecordings == "true") {
+		if (isset($isCallRecordings) && $isCallRecordings == true) {
 			$isCallRecordings  = 1;
-		}
-
-		if (isset($isCallRecordings) && $isCallRecordings == "false") {
+		}else {
 			$isCallRecordings  = 0;
 		}
 
 
-
-		if (!$isViewRecordings) {
-			$isViewRecordings  = 0;
-		}
-
-		if (isset($isViewRecordings) && $isViewRecordings == "true") {
+		if (isset($isViewRecordings) && $isViewRecordings == true) {
 			$isViewRecordings  = 1;
-		}
-
-		if (isset($isViewRecordings) && $isViewRecordings == "false") {
+		} else {
 			$isViewRecordings  = 0;
 		}
 
 
-		if (!$isCallTranscriptions) {
-			$isCallTranscriptions  = 0;
-		}
-
-		if (isset($isCallTranscriptions) && $isCallTranscriptions == "true") {
+		if (isset($isCallTranscriptions) && $isCallTranscriptions == true) {
 			$isCallTranscriptions  = 1;
-		}
-
-		if (isset($isCallTranscriptions) && $isCallTranscriptions == "false") {
+		} else {
 			$isCallTranscriptions  = 0;
 		}
 
 
-
-		if (!$isCustomizeTTS) {
-			$isCustomizeTTS  = 0;
-		}
-
-		if (isset($isCustomizeTTS) && $isCustomizeTTS == "true") {
+		if (isset($isCustomizeTTS) && $isCustomizeTTS == true) {
 			$isCustomizeTTS  = 1;
-		}
-
-		if (isset($isCustomizeTTS) && $isCustomizeTTS == "false") {
+		} else {
 			$isCustomizeTTS  = 0;
 		}
 
 
-		if (!$isPushNotification) {
-			$isPushNotification  = 0;
-		}
+		
 
-		if (isset($isPushNotification) && $isPushNotification == "true") {
-			$isCustomizeTTS  = 1;
-		}
-
-		if (isset($isPushNotification) && $isPushNotification == "false") {
+		if (isset($isPushNotification) && $isPushNotification == true) {
+			$isPushNotification  = 1;
+		} else {
 			$isPushNotification  = 0;
 		}
 
 
-		if (!$isUnlimitedAppts) {
-			$isUnlimitedAppts  = 0;
-		}
-
-		if (isset($isUnlimitedAppts) && $isUnlimitedAppts == "true") {
-			$isCustomizeTTS  = 1;
-		}
-
-		if (isset($isUnlimitedAppts) && $isUnlimitedAppts == "false") {
+		if (isset($isUnlimitedAppts) && $isUnlimitedAppts == true) {
+			$isUnlimitedAppts  = 1;
+		} else {
 			$isUnlimitedAppts  = 0;
 		}
 
@@ -483,11 +434,11 @@ class Admin extends REST_Controller
 			$isWeekly  = 0;
 		}
 
-		if (isset($isWeekly) && $isWeekly == "true") {
+		if (isset($isWeekly) && $isWeekly == true) {
 			$isWeekly  = 1;
 		}
 
-		if (isset($isWeekly) && $isWeekly == "false") {
+		if (isset($isWeekly) && $isWeekly == false) {
 			$isWeekly  = 0;
 		}
 
@@ -496,30 +447,30 @@ class Admin extends REST_Controller
 			$isMonthly  = 0;
 		}
 
-		if (isset($isMonthly) && $isMonthly == "true") {
+		if (isset($isMonthly) && $isMonthly == true) {
 			$isMonthly  = 1;
 		}
 
-		if (isset($isMonthly) && $isMonthly == "false") {
+		if (isset($isMonthly) && $isMonthly == false) {
 			$isMonthly  = 0;
 		}
 
 		if (!$isYearly) {
 			$isYearly  = 0;
 		}
-		if (isset($isYearly) && $isYearly == "true") {
+		if (isset($isYearly) && $isYearly == true) {
 			$isYearly  = 1;
 		}
 
-		if (isset($isYearly) && $isYearly == "false") {
+		if (isset($isYearly) && $isYearly == false) {
 			$isYearly  = 0;
 		}
         
-        if (isset($isOneTime) && $isOneTime == "true") {
+        if (isset($isOneTime) && $isOneTime == true) {
 			$isOneTime  = 1;
 		}
 
-		if (isset($isOneTime) && $isOneTime == "false") {
+		if (isset($isOneTime) && $isOneTime == false) {
 			$isOneTime  = 0;
 		}
 
