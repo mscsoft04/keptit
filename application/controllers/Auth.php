@@ -136,7 +136,7 @@ class Auth extends CI_Controller
 		$this->data['title'] = "Logout";
 
 		// log the user out
-		$this->ion_auth->logout();
+		$this->session->sess_destroy();
 
 		// redirect them to the login page
 		redirect('auth/login', 'refresh');

@@ -340,9 +340,12 @@ class Ion_auth
 		$this->ion_auth_model->clear_forgotten_password_code($identity);
 		$this->ion_auth_model->clear_remember_code($identity);
 
-		// Destroy the session
+		/* // Destroy the session
 		$this->session->sess_destroy();
-
+		session_start(); */
+		
+        //$this->session->unset_userdata([]);
+		
 		$this->set_message('logout_successful');
 		return TRUE;
 	}

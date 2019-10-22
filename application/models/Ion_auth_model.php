@@ -1006,6 +1006,8 @@ class Ion_auth_model extends CI_Model
 								  ->limit(1)
 								  ->order_by('id', 'desc')
 								  ->get($this->tables['users']);
+								  
+								  echo $query->num_rows();
 				if ($query->num_rows() === 1)
 				{
 					$this->session->set_userdata('last_check', time());

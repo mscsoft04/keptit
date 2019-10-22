@@ -53,6 +53,18 @@ $route['default_controller'] = 'auth/login';
 $route['welcome'] = 'welcome';
 $route['forgot_password'] = 'auth/forgot_password';
 $route['weblogout'] = 'auth/logout';
+$route['administration'] = 'Administration/index';
+$route['cutomer-details'] = 'CutomerDetails/index';
+$route['customer-transactions'] = 'CustomerTransactions/index';
+$route['transaction-history'] = 'TransactionHistory/index';
+$route['customer-report'] = 'CustomerReport/index';
+$route['transaction-report'] = 'TransactionReport/index';
+
+
+
+
+
+
 
 
 
