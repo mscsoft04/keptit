@@ -5,13 +5,13 @@ class TransactionHistory extends CI_Controller {
 
 	
 	public $data;
-    public $title;	
+    public $title='History';	
 	public function __construct()
 	{
 		parent::__construct();
 		
 		 if (!$this->ion_auth->logged_in()){
-            redirect('auth/login');
+            redirect('/');
          }
        
 

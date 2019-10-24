@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Administration extends CI_Controller {
+class Appointment extends CI_Controller {
 
 	
 	public $data;
-    public $title='Customer';	
+    public $title='Appointment';	
 	public function __construct()
 	{
 		parent::__construct();
@@ -13,8 +13,8 @@ class Administration extends CI_Controller {
 		 if (!$this->ion_auth->logged_in()){
             redirect('/');
          }
-       $this->load->model(array('Administration_model'=>'administration'));
-	   $this->model = $this->administration;
+       $this->load->model(array('Appointment_model'=>'appointment'));
+	   $this->model = $this->appointment;
 
 
 	}
@@ -24,7 +24,7 @@ class Administration extends CI_Controller {
             redirect('auth/login');
          }
 		
-		$this->data['content'] = $this->load->view('Administration/index',$this->data, true );
+		$this->data['content'] = $this->load->view('appointment/index',$this->data, true );
 		
     	$this->load->view('layout/main', $this->data );
 		
@@ -33,37 +33,31 @@ class Administration extends CI_Controller {
 
 	}
 	public function ajaxTablelist(){
-	   
-	   if (!$this->input->is_ajax_request()) {
+	    
+		if (!$this->input->is_ajax_request()) {
           exit('No direct script access allowed');
         }
 		
-		$list = $this->model->get_datatables();
+		$appointments = $this->model->get_datatables();
 		
-		$data=array();
-       
+		
+       $data=array();
         
-        foreach ($list as $user) {
+        foreach ($appointments as $appointment) {
             
             $row = array();
             
-            $row[] = $user->userId;
-			if($user->active_status==0){
-			  $row[] = 'Inactive';	
-			}else if($user->active_status==1){
-			  $row[] = 'Active';	
-			}else if($user->active_status==2){
-			  $row[] = 'Block';	
-			}
-           
-            $row[] = $user->mobileNo;
-			$row[] ='';
-			$row[] ='';
-            $row[] = $user->deviceType;
-			$row[] ='';
-			$row[] ='';
-			$row[] ='';
-			$row[] ='<a href="'.base_url().'cutomer-details?id='.$user->userId.'" class="edit">Details</a>';
+            $row[] = $appointment->userId;
+			$row[] = $appointment->appointmentId;
+			$row[] = $appointment->appointmentName;
+			$row[] = $appointment->scheduledDt;
+			$row[] = $appointment->scheduleType;
+			$row[] = $appointment->mobileNo;
+			$row[] = ($appointment->isWeekly==1)? true:false;
+			$row[] = ($appointment->isMonthly==1)? true:false;
+			$row[] = ($appointment->isYearly==1)? true:false;
+			
+			
             
 			
 		$data[] = $row;

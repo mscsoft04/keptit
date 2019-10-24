@@ -134,12 +134,23 @@ class Auth extends CI_Controller
 	public function logout()
 	{
 		$this->data['title'] = "Logout";
+		$identity = $this->config->item('identity', 'ion_auth');
+
+		$this->session->unset_userdata([$identity, 'id', 'user_id']);
+
+		// delete the remember me cookies if they exist
+		delete_cookie($this->config->item('remember_cookie_name', 'ion_auth'));
+
+		// Clear all codes
+		$this->ion_auth_model->clear_forgotten_password_code($identity);
+		$this->ion_auth_model->clear_remember_code($identity);
 
 		// log the user out
 		$this->session->sess_destroy();
+		
 
 		// redirect them to the login page
-		redirect('auth/login', 'refresh');
+		redirect('/', 'refresh');
 	}
 
 	/**

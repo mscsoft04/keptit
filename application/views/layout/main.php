@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php ?></title>
+    <title><?php echo $this->title?></title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-           company name
+           KEPT IT
           </div>
           <div class="clearfix"></div>
         </footer>

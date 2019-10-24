@@ -1,3 +1,5 @@
+<?php //print_r($row);?>
+
 <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -11,19 +13,23 @@
                   <div class="x_content">
                     <table class="table table-striped table-bordered bulk_action">
                       <tr>
-                        <th colspan="2"><h3>View Customer ID: C009</h3></th>
+                        <th colspan="2"><h3>View Customer ID: <?php echo $row->userId; ?> </h3></th>
                       </tr>
                       <tr>
                         <th>unique ID</th>
-                        <td>009</td>
+                        <td><?php echo $row->userId; ?></td>
                       </tr>
                       <tr>
                         <th>Status</th>
+						<?php if($row->active_status==1) {?>
                         <td>Active</td>
+						<?php } elseif($row->active_status==0) {?>
+						 <td>Inactive</td>
+						<?php } ?>
                       </tr>
                       <tr>
                         <th>Phone Number</th>
-                        <td>9876543212</td>
+                        <td><?php echo $row->mobileNo; ?></td>
                       </tr>
                       <tr>
                         <th>Verified</th>
@@ -35,7 +41,7 @@
                       </tr>
                       <tr>
                         <th>Device Type</th>
-                        <td>Sony M4Aqua Dual</td>
+                        <td><?php echo $row->deviceType; ?></td>
                       </tr>
                     </table>
                     

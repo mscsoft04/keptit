@@ -1,23 +1,23 @@
 <?php
-  class Administration_model extends CI_Model {
+  class Appointment_model extends CI_Model {
        
-      public $table = 'register';
+      public $table = 'appointment';
 	public $primaryKey = 'id';
 	
-    public $column_order = array('userId','active_status','mobileNo','deviceType'); 
-    public $column_search = array('userId','active_status','mobileNo','deviceType'); 
+    public $column_order = array('userId','appointmentId','appointmentName','scheduledDt','scheduleType','mobileNo','isWeekly','isMonthly','isYearly'); 
+    public $column_search = array('userId','appointmentId','appointmentName','scheduledDt','scheduleType','mobileNo','isWeekly','isMonthly','isYearly'); 
     public $order = array('id' => 'DESC'); // default order 
 	
 	 private function _get_datatables_query()
     {
          
         $this->db->from($this->table);
-        if($this->input->post('status')){
+        /* if($this->input->post('status')){
 			$this->db->where(array('active_status'=>$this->input->post('status')));
 		}
 		if($this->input->post('device')){
 			$this->db->where(array('deviceType'=>$this->input->post('device')));
-		}
+		} */
        
  
         $i = 0;

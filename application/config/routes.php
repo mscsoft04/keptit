@@ -59,6 +59,7 @@ $route['customer-transactions'] = 'CustomerTransactions/index';
 $route['transaction-history'] = 'TransactionHistory/index';
 $route['customer-report'] = 'CustomerReport/index';
 $route['transaction-report'] = 'TransactionReport/index';
+$route['appointmentlist'] = 'Appointment/index';
 
 
 

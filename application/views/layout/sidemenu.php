@@ -1,6 +1,6 @@
 <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?php echo base_url();?>/" class="site_title"> <span>KEPT IT</span></a>
+              <a href="<?php echo base_url();?>" class="site_title"> <span>KEPT IT</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -8,7 +8,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo base_url();?>/assets/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url();?>assets/images/img.jpeg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -34,6 +34,8 @@
                       
                     </ul>
                   </li>
+				   <li><a href="<?php echo base_url();?>appointmentlist"><i class="fa fa-clock-o"></i> Appointments </a>
+				  
                   <li><a><i class="fa fa-dollar"></i> Transaction <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url();?>customer-transactions">Customer details</a></li>
@@ -89,7 +91,7 @@
                 </li>
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo base_url();?>/assets/images/img.jpg" alt=""><?php  echo $this->session->userdata['email']?>
+                    <img src="<?php echo base_url();?>assets/images/img.jpeg" alt=""><?php  echo $this->session->userdata['email']?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

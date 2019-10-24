@@ -4,26 +4,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Administration</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h2>Appointment</small></h2>
+                    
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <div class="row administration-search">
+                   <!-- <div class="row administration-search">
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                               <label>Status</label>
@@ -54,20 +40,21 @@
                               </select>
                             </div>
                          </div>
-                    </div>
+                    </div>---->
                     <table id="datatable" class="table table-striped table-bordered bulk_action">
                       <thead>
                         <tr>
                           <th>Unique ID</th>
-                          <th>Status</th>
-                          <th>Phone Number</th>
-                          <th>Verified</th>
-                          <th>Paid Account</th>
-                          <th>Device Details</th>
-                          <th>Subscription</th>
-                          <th>Monthly Recurring Rev</th>
-                          <th>Profit</th>
-                          <th>More Info</th>
+                          <th>AppointmentId</th>
+                          <th>AppointmentName</th>
+                          <th>Scheduled</th>
+                          <th>ScheduleType</th>
+                          <th>MobileNo</th>
+						  <th>isWeekly</th>
+						  <th>isMonthly</th>
+						  <th>isYearly</th>
+                          
+                     
                         </tr>
                       </thead>
 					  <tbody>
@@ -100,15 +87,15 @@ $(document).ready(function() {
                 d.status = status;
                 d.device = device;
             },
-            "url": "<?php echo base_url();?>Administration/ajaxTablelist",
+            "url": "<?php echo base_url();?>Appointment/ajaxTablelist",
             "type": "POST"
         },
 
         //Set column definition initialisation properties.
         "columnDefs": [{
             
-            "targets": [8],
-            "orderable": false, //set not orderable
+            //"targets": [],
+            //"orderable": false, //set not orderable
         }, ],
 
     });
